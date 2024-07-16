@@ -1,3 +1,5 @@
+import "../node_modules/destyle.css/destyle.min.css";
+
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import React from "react";
 import List from "./components/List";
