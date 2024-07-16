@@ -1,0 +1,7 @@
+div{
+    width: 100px; height: 100px;
+    background: red;
+    h1 {
+        color: green;
+    }
+}
