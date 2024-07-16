@@ -3,7 +3,6 @@ import React from "react";
 import List from "./components/List";
 import Detail from "./components/Detail";
 import NotFound from "./components/NotFound";
-import "./test.css"
 
 function App() {
 	return (
