@@ -1,2 +1,1 @@
-# example-abc
-private practice
+# 個人的な練習用レポジトリです
