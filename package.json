@@ -1,28 +1,37 @@
 {
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.25.0",
-    "recoil": "^0.7.7"
-  },
-  "devDependencies": {
-    "react-scripts": "^5.0.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "preview:build": "go run local_server.go"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+	"dependencies": {
+		"@types/jest": "^27.5.2",
+		"@types/node": "^16.18.101",
+		"@types/react": "^18.3.3",
+		"@types/react-dom": "^18.3.0",
+		"destyle.css": "^4.0.1",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"react-router-dom": "^6.25.0",
+		"recoil": "^0.7.7"
+	},
+	"devDependencies": {
+		"biome": "^0.3.3",
+		"chokidar": "^3.6.0",
+		"prettier": "^3.3.3",
+		"react-scripts": "^5.0.1",
+		"stylelint": "^16.7.0",
+		"stylelint-config-recommended": "^14.0.1",
+		"stylelint-order": "^6.0.4"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"clean": "git clean -xdf",
+		"formatter": "node watch.js",
+		"preview:build": "go run local_server.go"
+	},
+	"browserslist": {
+		"production": [">0.2%", "not dead", "not op_mini all"],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
 }
