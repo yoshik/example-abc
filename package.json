@@ -21,6 +21,7 @@
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
+		"clean": "git clean -xdf",
 		"formatter": "node watch.js",
 		"preview:build": "go run local_server.go"
 	},
