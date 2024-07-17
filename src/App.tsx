@@ -5,12 +5,8 @@ import React from "react";
 import List from "./components/List";
 import Detail from "./components/Detail";
 import NotFound from "./components/NotFound";
-import { ApiBookAll } from "./apis/client";
+
 function App() {
-	(async () => {
-		const it = await ApiBookAll();
-		console.log(it.data);
-	})();
 	return (
 		<BrowserRouter>
 			<div className="App">
