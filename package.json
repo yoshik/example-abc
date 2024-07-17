@@ -5,6 +5,7 @@
 		"@types/react": "^18.3.3",
 		"@types/react-dom": "^18.3.0",
 		"destyle.css": "^4.0.1",
+		"openapi-fetch": "^0.10.2",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
 		"react-router-dom": "^6.25.0",
@@ -13,6 +14,7 @@
 	"devDependencies": {
 		"biome": "^0.3.3",
 		"chokidar": "^3.6.0",
+		"npm-run-all": "^4.1.5",
 		"prettier": "^3.3.3",
 		"react-scripts": "^5.0.1",
 		"stylelint": "^16.7.0",
@@ -20,8 +22,11 @@
 		"stylelint-order": "^6.0.4"
 	},
 	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
+		"start": "run-s build:schema start:react",
+		"start:react": "react-scripts start",
+		"build": "run-s build:schema build:react",
+		"build:schema": "npx openapi-typescript schema/openapi.yaml --output src/apis/schema.ts",
+		"build:react": "react-scripts build",
 		"clean": "git clean -xdf",
 		"formatter": "node watch.js",
 		"preview:build": "go run local_server.go"

@@ -1,3 +1,4 @@
-build/
 node_modules/
+build/
+src/apis/schema.ts
 .DS_Store
