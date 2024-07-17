@@ -16,7 +16,7 @@ chokidar.watch("./src").on("all", (event, path) => {
 		prev = path;
 	}
 	if (event === "change") {
-		if (path.endsWith(".tsx")) {
+		if (path.endsWith(".tsx") || path.endsWith(".ts")) {
 			exec("npx @biomejs/biome format --write " + path, log);
 		}
 		if (path.endsWith(".css")) {
