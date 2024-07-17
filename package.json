@@ -28,8 +28,7 @@
 		"build:schema": "npx openapi-typescript schema/openapi.yaml --output src/apis/schema.ts",
 		"build:react": "react-scripts build",
 		"clean": "git clean -xdf",
-		"formatter": "node watch.js",
-		"preview:build": "go run local_server.go"
+		"formatter": "node watch.js"
 	},
 	"browserslist": {
 		"production": [">0.2%", "not dead", "not op_mini all"],
