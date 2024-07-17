@@ -22,7 +22,8 @@
 		"stylelint-order": "^6.0.4"
 	},
 	"scripts": {
-		"start": "run-s build:schema react-scripts start",
+		"start": "run-s build:schema start:react",
+		"start:react": "react-scripts start",
 		"build": "run-s build:schema build:react",
 		"build:schema": "npx openapi-typescript schema/openapi.yaml --output src/apis/schema.ts",
 		"build:react": "react-scripts build",
