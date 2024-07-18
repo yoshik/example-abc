@@ -2,19 +2,19 @@ import { atom } from "recoil";
 import { NetworkState, ExpiredAt, Initialized } from "../models/NetworkState";
 import { ResponseBookAll } from "../apis/client";
 
-interface ListProps {
+interface BookAllProps {
 	networkState: NetworkState;
 	expiredAt: ExpiredAt | null;
 	cache: ResponseBookAll | null;
 }
 
-const initListProps: ListProps = {
+const initBookAllProps: BookAllProps = {
 	networkState: Initialized,
 	expiredAt: null,
 	cache: null,
 };
 
-export const ListState = atom({
-	key: "ListState",
-	default: initListProps,
+export const BookAllState = atom({
+	key: "BookAllState",
+	default: initBookAllProps,
 });

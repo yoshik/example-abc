@@ -1,10 +1,10 @@
 import { useRecoilState } from "recoil";
-import { ListState } from "./ListState";
+import { BookAllState } from "./BookAllState";
 import { ApiBookAll } from "../apis/client";
 import { Loaded } from "../models/NetworkState";
 
 const List = () => {
-	const [state, setState] = useRecoilState(ListState);
+	const [state, setState] = useRecoilState(BookAllState);
 	(async () => {
 		const data = (await ApiBookAll()).data;
 		setState({
