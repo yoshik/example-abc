@@ -1,5 +1,6 @@
 import { useRecoilState } from "recoil";
 import { updateBookAll, BookAllState } from "./BookAllState";
+import "../styles/list.css";
 
 const List = () => {
 	const [state, setState] = useRecoilState(BookAllState);
