@@ -1,0 +1,16 @@
+@import "thema.css";
+
+body {
+  background-color: var(--backgroud-sub-color);
+  text-align: center;
+  .main {
+    @media (max-width: 768px) {
+      margin: auto;
+      width: 100%;
+    }
+    @media (min-width: 768px) {
+      margin: auto;
+      width: 450px;
+    }
+  }
+}
