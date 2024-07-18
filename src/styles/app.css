@@ -10,7 +10,7 @@ body {
     }
     @media (min-width: 768px) {
       margin: auto;
-      width: 450px;
+      width: 768px;
     }
   }
 }
