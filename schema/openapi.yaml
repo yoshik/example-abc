@@ -19,11 +19,18 @@ paths:
             application/json:
               schema: 
                 type: object
+                required: 
+                  - top_category_list
                 properties:
                   top_category_list:
                     type: array
                     items:
                       type: object
+                      required:
+                        - id_top_category
+                        - is_focused
+                        - name_category
+                        - sub_category_list
                       properties:
                         id_top_category:
                           type: string
@@ -38,6 +45,12 @@ paths:
                           type: array
                           items:
                             type: object
+                            required:
+                              - id_category
+                              - is_ranking
+                              - name_category
+                              - need_load_more
+                              - book_list
                             properties:
                               id_category:
                                 type: string
@@ -55,6 +68,17 @@ paths:
                                 type: array
                                 items:
                                   type: object
+                                  required:
+                                    - author
+                                    - content_type
+                                    - create_at
+                                    - has_contents
+                                    - has_purchased
+                                    - id_book
+                                    - img_url
+                                    - is_unlimited
+                                    - name_book
+                                    - publisher
                                   properties:
                                     author:
                                       type: string
