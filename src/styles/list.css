@@ -1,0 +1,33 @@
+@import "thema.css";
+
+.list {
+  background-color: var(--backgroud-main-color);
+
+  .sub_category {
+    text-align-last: left;
+
+    .sub_category_name {
+      color: var(--font-color);
+      font-size: 15px;
+      font-weight: bold;
+      padding: 15px;
+    }
+
+    .book_list {
+      display: flex;
+      margin-bottom: 5px;
+      overflow-x: auto;
+
+      .book {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: inline-block;
+        flex-grow: 1;
+        height: 110px;
+        margin-left: 15px;
+        min-width: 70px;
+      }
+    }
+  }
+}
