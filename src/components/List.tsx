@@ -1,18 +1,12 @@
 import { useRecoilState } from "recoil";
-import { BookAllState } from "./BookAllState";
-import { ApiBookAll } from "../apis/client";
-import { Loaded } from "../models/NetworkState";
+import { fetchBookAll, BookAllState } from "./BookAllState";
 
 const List = () => {
 	const [state, setState] = useRecoilState(BookAllState);
-	(async () => {
-		const data = (await ApiBookAll()).data;
-		setState({
-			networkState: Loaded,
-			cache: data,
-			expiredAt: new Date(1000 * 60),
-		});
-	})();
+	(async (state) => {
+		const fetchData = await fetchBookAll(state);
+		if (fetchData) setState(fetchData);
+	})(state);
 	return (
 		<div>
 			<h1>List</h1>
