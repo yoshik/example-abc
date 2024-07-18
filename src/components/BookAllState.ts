@@ -1,54 +1,53 @@
-import { atom } from "recoil";
-import {
-	NetworkState,
-	ExpiredAt,
-	Initialized,
-	Loaded,
-	Expired,
-} from "../models/NetworkState";
+import { atom, SetterOrUpdater } from "recoil";
+import { ExpiredAt } from "../models/ExpiredAt";
 import { ApiBookAll, ResponseBookAll } from "../apis/client";
 import log from "../Log";
 
 interface BookAllProps {
-	networkState: NetworkState;
 	expiredAt: ExpiredAt | null;
-	cache: ResponseBookAll | null;
+	data: ResponseBookAll | null;
+	error: boolean;
 }
 
 const initBookAllProps: BookAllProps = {
-	networkState: Initialized,
 	expiredAt: null,
-	cache: null,
+	data: null,
+	error: false,
 };
 
-export const updateBookAllIfNeeded = (
-	oldProps: BookAllProps,
-): Promise<BookAllProps | null> => {
+const fetchBookAll = (oldProps: BookAllProps): Promise<BookAllProps | null> => {
 	const fetch = async (): Promise<BookAllProps | null> => {
 		const res = await ApiBookAll();
 		log("Loading ApiBookAll:" + res.response.status);
-		return res.response.status == 200
-			? {
-					networkState: Loaded,
-					cache: res.data,
-					expiredAt: new Date(1000 * 60),
-				}
-			: null;
-	};
-	const isExpire = oldProps.expiredAt > new Date();
-
-	switch (oldProps.networkState) {
-		case Initialized:
-			return fetch();
-		case Loaded:
-			if (isExpire) {
-				return fetch();
-			} else {
+		if (res.response.status == 200) {
+			return {
+				data: res.data,
+				expiredAt: new Date(1000 * 60),
+				error: false,
+			};
+		} else {
+			if (oldProps.data != null) {
 				return null;
+			} else {
+				return {
+					data: null,
+					expiredAt: null,
+					error: true,
+				};
 			}
-		case Expired:
-			return fetch();
-	}
+		}
+	};
+	const isExpire =
+		oldProps.expiredAt == null || oldProps.expiredAt > new Date();
+	return isExpire ? fetch() : null;
+};
+
+export const updateBookAll = async (
+	state: BookAllProps,
+	setState: SetterOrUpdater<BookAllProps>,
+) => {
+	const fetchData = await fetchBookAll(state);
+	if (fetchData) setState(fetchData);
 };
 
 export const BookAllState = atom({
