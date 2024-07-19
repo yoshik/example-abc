@@ -18,6 +18,9 @@
       gap: 85px;
       margin-bottom: 5px;
       overflow-x: auto;
+      .book:first-child {
+        margin-left: 10px;
+      }
       .book {
         background-position: center center;
         background-repeat: no-repeat;

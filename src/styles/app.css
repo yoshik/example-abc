@@ -4,13 +4,15 @@ body {
   background-color: var(--backgroud-sub-color);
   text-align: center;
   .main {
+    color: var(--font-color);
+    text-align: left;
     @media (max-width: 768px) {
       margin: auto;
       width: 100%;
     }
     @media (min-width: 768px) {
       margin: auto;
-      width: 768px;
+      max-width: 900px;
     }
   }
 }
