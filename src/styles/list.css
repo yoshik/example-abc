@@ -15,9 +15,9 @@
 
     .book_list {
       display: flex;
+      gap: 85px;
       margin-bottom: 5px;
       overflow-x: auto;
-
       .book {
         background-position: center center;
         background-repeat: no-repeat;
@@ -25,8 +25,7 @@
         display: inline-block;
         flex-grow: 1;
         height: 110px;
-        margin-left: 15px;
-        min-width: 70px;
+        width: 70px;
       }
     }
   }
