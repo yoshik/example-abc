@@ -1,0 +1,43 @@
+icon_study_marksheet.light_icon_study_quiz {
+  content: url("./icon/light/icon_study_quiz.svg");
+}
+.light_icon_study_test {
+  content: url("./icon/light/icon_study_test.svg");
+}
+.light_icon_study_sound {
+  content: url("./icon/light/icon_study_sound.svg");
+}
+.light_icon_study_sw {
+  content: url("./icon/light/icon_study_sw.svg");
+}
+.light_icon_study_vocab {
+  content: url("./icon/light/icon_study_vocab.svg");
+}
+.light_icon_study_marksheet {
+  content: url("./icon/light/icon_study_marksheet.svg");
+}
+.light_icon_study_record {
+  content: url("./icon/light/icon_study_record.svg");
+}
+
+.dark_icon_study_quiz {
+  content: url("./icon/dark/icon_study_quiz.svg");
+}
+.dark_icon_study_test {
+  content: url("./icon/dark/icon_study_test.svg");
+}
+.dark_icon_study_sound {
+  content: url("./icon/dark/icon_study_sound.svg");
+}
+.dark_icon_study_sw {
+  content: url("./icon/dark/icon_study_sw.svg");
+}
+.dark_icon_study_vocab {
+  content: url("./icon/dark/icon_study_vocab.svg");
+}
+.dark_icon_study_marksheet {
+  content: url("./icon/dark/icon_study_marksheet.svg");
+}
+.dark_icon_study_record {
+  content: url("./icon/dark/icon_study_record.svg");
+}
