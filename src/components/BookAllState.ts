@@ -1,11 +1,11 @@
 import { atom, SetterOrUpdater } from "recoil";
 import { ExpiredAt } from "../models/ExpiredAt";
-import { ApiBookAll, ResponseBookAll } from "../apis/client";
+import { ApiBookAll, TopCategory } from "../apis/client";
 import log from "../Log";
 
 interface BookAllProps {
 	expiredAt: ExpiredAt | null;
-	data: ResponseBookAll | null;
+	data: TopCategory | null;
 	error: boolean;
 }
 
@@ -19,9 +19,10 @@ const fetchBookAll = (oldProps: BookAllProps): Promise<BookAllProps | null> => {
 	const fetch = async (): Promise<BookAllProps | null> => {
 		const res = await ApiBookAll();
 		log("Loading ApiBookAll:" + res.response.status);
-		if (res.response.status == 200) {
+		const data = res.data?.top_category_list[0];
+		if (res.response.status === 200 && data != null) {
 			return {
-				data: res.data,
+				data: data,
 				expiredAt: new Date(1000 * 60),
 				error: false,
 			};
