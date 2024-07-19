@@ -3,7 +3,7 @@ import "./styles/app.css";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import List from "./components/List";
 import Detail from "./components/Detail";
-import NotFound from "./components/NotFound";
+import { NotFound } from "./components/Errors";
 
 function App() {
 	return (

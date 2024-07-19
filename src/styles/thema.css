@@ -12,6 +12,7 @@
     --accent-color: #ea706c;
   }
 }
+
 html {
   @media (prefers-color-scheme: dark) {
     --isDarkmode: true;
@@ -50,4 +51,12 @@ html {
   .label {
     margin-top: 5px;
   }
+}
+
+.error {
+  background-color: var(--backgroud-sub-color);
+  color: var(--font-color);
+  font-size: 18px;
+  font-weight: bold;
+  padding: 30px;
 }

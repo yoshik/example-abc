@@ -5,6 +5,7 @@ import { Book, TopCategory } from "../apis/client";
 import { useRecoilState } from "recoil";
 import { updateBookAll, BookAllState } from "./BookAllState";
 import { setFavorite, unsetFavorite, MyBookState } from "./MyBookState";
+import { Gone } from "./Errors";
 
 const Detail = () => {
 	function findBookByLocationState(): Book | null {
@@ -96,7 +97,7 @@ const Detail = () => {
 
 	const book = findBookByLocationState() ?? findBookByBookAllApi();
 	if (book == null) {
-		return <div>[TODO] this book has gone</div>;
+		return Gone();
 	}
 
 	const [state, setState] = useRecoilState(MyBookState);
