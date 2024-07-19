@@ -9,13 +9,10 @@ function App() {
 	return (
 		<BrowserRouter>
 			<div className="App">
-				<div>
-					<Link to="/list">List</Link>
-				</div>
-				<div>
-					<Link to="/detail">Detail</Link>
-				</div>
 				<div className="main">
+					<div>
+						<Link to="/list">[戻る]</Link>
+					</div>
 					<Routes>
 						<Route path="/" element={<List />} />
 						<Route path="/list" element={<List />} />
