@@ -22,7 +22,7 @@ const List = () => {
 							<div className="book_list">
 								{(() =>
 									sub_category.book_list.map((book) => (
-										<Link to={"/book/" + book.id_book}>
+										<Link to={"/book/" + book.id_book} state={{ book: book }}>
 											<div
 												className="book"
 												key={book.id_book}
