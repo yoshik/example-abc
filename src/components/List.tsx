@@ -10,7 +10,7 @@ const List = () => {
 		<div className="list">
 			{(() => {
 				if (state.error) {
-					return <div>[TODO] error</div>;
+					return <div>[TODO] temporarily unavailable</div>;
 				} else if (state.data == null) {
 					/* loading */
 				} else {
@@ -22,7 +22,7 @@ const List = () => {
 							<div className="book_list">
 								{(() =>
 									sub_category.book_list.map((book) => (
-										<Link to={"/book/" + book.id_book}>
+										<Link to={"/book/" + book.id_book} state={{ book: book }}>
 											<div
 												className="book"
 												key={book.id_book}
