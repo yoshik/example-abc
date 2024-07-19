@@ -33,6 +33,22 @@ const Detail = () => {
 		return book;
 	}
 
+	interface button {
+		id: string;
+		label: string;
+		imgPath: string;
+	}
+
+	const buttons: Array<button> = [
+		{ id: "detail_btn_app", label: "アプリ学習", imgPath: "" },
+		{ id: "detail_btn_test", label: "テスト", imgPath: "" },
+		{ id: "detail_btn_voice", label: "音声(無料)", imgPath: "" },
+		{ id: "detail_btn_sw", label: "SW トレ", imgPath: "" },
+		{ id: "detail_btn_word", label: "単語一覧", imgPath: "" },
+		{ id: "detail_btn_sheet", label: "マークシート", imgPath: "" },
+		{ id: "detail_btn_record", label: "学習記録", imgPath: "" },
+	];
+
 	const book = findBookByLocationState() ?? findBookByBookAllApi();
 	if (book == null) {
 		return <div>[TODO] this book has gone</div>;
