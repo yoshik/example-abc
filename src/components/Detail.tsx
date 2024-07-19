@@ -1,4 +1,5 @@
 import "../styles/detail.css";
+import "../styles/icons.css";
 import { useParams, useLocation } from "react-router-dom";
 import { Book, TopCategory } from "../apis/client";
 import { useRecoilState } from "recoil";
@@ -36,18 +37,61 @@ const Detail = () => {
 	interface button {
 		id: string;
 		label: string;
-		imgPath: string;
+		darkImg: string;
+		lightImg: string;
 	}
 
 	const buttons: Array<button> = [
-		{ id: "detail_btn_app", label: "アプリ学習", imgPath: "" },
-		{ id: "detail_btn_test", label: "テスト", imgPath: "" },
-		{ id: "detail_btn_voice", label: "音声(無料)", imgPath: "" },
-		{ id: "detail_btn_sw", label: "SW トレ", imgPath: "" },
-		{ id: "detail_btn_word", label: "単語一覧", imgPath: "" },
-		{ id: "detail_btn_sheet", label: "マークシート", imgPath: "" },
-		{ id: "detail_btn_record", label: "学習記録", imgPath: "" },
+		{
+			id: "detail_btn_quiz",
+			label: "アプリ学習",
+			darkImg: "dark_icon_study_quiz",
+			lightImg: "light_icon_study_quiz",
+		},
+		{
+			id: "detail_btn_test",
+			label: "テスト",
+			darkImg: "dark_icon_study_test",
+			lightImg: "light_icon_study_test",
+		},
+		{
+			id: "detail_btn_sound",
+			label: "音声(無料)",
+			darkImg: "dark_icon_study_sound",
+			lightImg: "light_icon_study_sound",
+		},
+		{
+			id: "detail_btn_sw",
+			label: "SW トレ",
+			darkImg: "dark_icon_study_sw",
+			lightImg: "light_icon_study_sw",
+		},
+		{
+			id: "detail_btn_vocab",
+			label: "単語一覧",
+			darkImg: "dark_icon_study_vocab",
+			lightImg: "light_icon_study_vocab",
+		},
+		{
+			id: "detail_btn_marksheet",
+			label: "マークシート",
+			darkImg: "dark_icon_study_marksheet",
+			lightImg: "light_icon_study_marksheet",
+		},
+		{
+			id: "detail_btn_record",
+			label: "学習記録",
+			darkImg: "dark_icon_study_record",
+			lightImg: "light_icon_study_record",
+		},
 	];
+
+	const isDark = () => {
+		const html = document.querySelector("html");
+		const style = getComputedStyle(html);
+		const css = style.getPropertyValue("--isDarkmode");
+		return css === "ture";
+	};
 
 	const book = findBookByLocationState() ?? findBookByBookAllApi();
 	if (book == null) {
@@ -77,18 +121,17 @@ const Detail = () => {
 							<div className="right">{book.publisher}</div>
 						</div>
 						<div className="line">
-							<button>Mybookに追加</button>
-							<button>読み放題中</button>
+							<button className="button">Mybookに追加</button>
+							<button className="button">読み放題中</button>
 						</div>
 					</div>
 				</div>
 
 				<div className="button_area">
 					{buttons.map((button) => (
-						<button className="button">
-							<div className="label" key={button.id}>
-								{button.label}
-							</div>
+						<button className="square-button" key={button.id}>
+							<img className={isDark ? button.darkImg : button.lightImg} />
+							<div className="label">{button.label}</div>
 						</button>
 					))}
 				</div>

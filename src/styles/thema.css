@@ -12,3 +12,8 @@
     --accent-color: #ea706c;
   }
 }
+html {
+  @media (prefers-color-scheme: dark) {
+    --isDarkmode: true;
+  }
+}

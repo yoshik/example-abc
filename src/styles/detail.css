@@ -31,8 +31,7 @@
           font-size: 10px;
           padding: 2px;
         }
-        button {
-          /* TODO */
+        .button {
           border: solid 1px;
           border-radius: 3px;
           color: var(--accent-color);
@@ -45,7 +44,8 @@
   /* button_area */
   .button_area {
     background-color: var(--backgroud-sub-color);
-    .button {
+    text-align: center;
+    .square-button {
       border: solid 1px var(--accent-color);
       border-radius: 5px;
       color: var(--font-color);
@@ -54,6 +54,12 @@
       height: 70px;
       margin: 0 15px 15px 15px;
       width: 70px;
+      img {
+        margin-top: 5px;
+      }
+      .label {
+        margin-top: 5px;
+      }
     }
   }
 }
@@ -99,7 +105,7 @@
         .right {
           grid-column: 2;
         }
-        button {
+        .button {
           float: left;
           min-width: 100px;
         }
