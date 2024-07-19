@@ -2,6 +2,7 @@ import { useRecoilState } from "recoil";
 import { updateBookAll, BookAllState } from "./BookAllState";
 import { Link } from "react-router-dom";
 import "../styles/list.css";
+import { Busy } from "./Errors";
 
 const List = () => {
 	const [state, setState] = useRecoilState(BookAllState);
@@ -10,7 +11,7 @@ const List = () => {
 		<div className="list">
 			{(() => {
 				if (state.error) {
-					return <div>[TODO] temporarily unavailable</div>;
+					return Busy();
 				} else if (state.data == null) {
 					/* loading */
 				} else {

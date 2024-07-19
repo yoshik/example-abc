@@ -12,8 +12,51 @@
     --accent-color: #ea706c;
   }
 }
+
 html {
   @media (prefers-color-scheme: dark) {
     --isDarkmode: true;
   }
+}
+
+.button_on {
+  background-color: var(--accent-color);
+  border: solid 1px;
+  border-radius: 3px;
+  color: var(--backgroud-main-color);
+  margin: 5px;
+  padding: 5px;
+}
+.button_off {
+  background-color: var(--backgroud-main-color);
+  border: solid 1px;
+  border-radius: 3px;
+  color: var(--accent-color);
+  margin: 5px;
+  padding: 5px;
+}
+
+.square-button {
+  border: solid 1px var(--accent-color);
+  border-radius: 5px;
+  color: var(--font-color);
+  float: left;
+  font-size: 8px;
+  height: 70px;
+  margin: 0 15px 15px 15px;
+  width: 70px;
+  img {
+    margin-top: 5px;
+  }
+  .label {
+    margin-top: 5px;
+  }
+}
+
+.error {
+  background-color: var(--backgroud-sub-color);
+  color: var(--font-color);
+  font-size: 18px;
+  font-weight: bold;
+  padding: 30px;
 }

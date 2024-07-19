@@ -4,6 +4,8 @@ import { useParams, useLocation } from "react-router-dom";
 import { Book, TopCategory } from "../apis/client";
 import { useRecoilState } from "recoil";
 import { updateBookAll, BookAllState } from "./BookAllState";
+import { setFavorite, unsetFavorite, MyBookState } from "./MyBookState";
+import { Gone } from "./Errors";
 
 const Detail = () => {
 	function findBookByLocationState(): Book | null {
@@ -95,8 +97,11 @@ const Detail = () => {
 
 	const book = findBookByLocationState() ?? findBookByBookAllApi();
 	if (book == null) {
-		return <div>[TODO] this book has gone</div>;
+		return Gone();
 	}
+
+	const [state, setState] = useRecoilState(MyBookState);
+
 	return (
 		<div className="detail">
 			<div className="detail_responsive">
@@ -121,8 +126,22 @@ const Detail = () => {
 							<div className="right">{book.publisher}</div>
 						</div>
 						<div className="line">
-							<button className="button">Mybookに追加</button>
-							<button className="button">読み放題中</button>
+							{state.favorites[book.id_book] ? (
+								<button
+									className="button_on"
+									onClick={() => unsetFavorite(book, state, setState)}
+								>
+									Mybook削除
+								</button>
+							) : (
+								<button
+									className="button_off"
+									onClick={() => setFavorite(book, state, setState)}
+								>
+									Mybook追加
+								</button>
+							)}
+							<button className="button_on">読み放題中</button>
 						</div>
 					</div>
 				</div>
