@@ -1,5 +1,6 @@
 import { useRecoilState } from "recoil";
 import { updateBookAll, BookAllState } from "./BookAllState";
+import { Link } from "react-router-dom";
 import "../styles/list.css";
 
 const List = () => {
@@ -22,11 +23,13 @@ const List = () => {
 								<div className="book_list">
 									{(() =>
 										sub_category.book_list.map((book) => (
-											<div
-												className="book"
-												key={book.id_book}
-												style={{ backgroundImage: `url(${book.img_url})` }}
-											></div>
+											<Link to={"/book/" + book.id_book}>
+												<div
+													className="book"
+													key={book.id_book}
+													style={{ backgroundImage: `url(${book.img_url})` }}
+												></div>
+											</Link>
 										)))()}
 								</div>
 							</div>
