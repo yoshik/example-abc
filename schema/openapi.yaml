@@ -18,58 +18,65 @@ paths:
           content:
             application/json:
               schema: 
-                type: object
-                required: 
-                  - top_category_list
-                properties:
-                  top_category_list:
-                    type: array
-                    items:
-                      type: object
-                      required:
-                        - id_top_category
-                        - is_focused
-                        - name_category
-                        - sub_category_list
-                      properties:
-                        id_top_category:
-                          type: string
-                          example: "_top"
-                        is_focused:
-                          type: boolean
-                          example: false
-                        name_category:
-                          type: string
-                          example: "すべて"
-                        sub_category_list:
-                          type: array
-                          items:
-                            type: object
-                            required:
-                              - id_category
-                              - is_ranking
-                              - name_category
-                              - need_load_more
-                              - book_list
-                            properties:
-                              id_category:
-                                type: string
-                                example: "_ranking"
-                              is_ranking:
-                                type: boolean
-                                example: true
-                              name_category:
-                                type: string
-                                example: "人気ランキング"
-                              need_load_more:
-                                type: boolean
-                                example: true
-                              book_list:
-                                type: array
-                                items:
-                                  $ref: '#/components/schemas/book'                                   
+                $ref: '#/components/schemas/response_book_all'  
+
 components:
   schemas:
+    response_book_all:
+      type: object
+      required: 
+        - top_category_list
+      properties:
+        top_category_list:
+          type: array
+          items: 
+            $ref: '#/components/schemas/top_category'  
+    top_category:
+      type: object
+      required:
+        - id_top_category
+        - is_focused
+        - name_category
+        - sub_category_list
+      properties:
+        id_top_category:
+          type: string
+          example: "_top"
+        is_focused:
+          type: boolean
+          example: false
+        name_category:
+          type: string
+          example: "すべて"
+        sub_category_list:
+          type: array
+          items:
+            $ref: '#/components/schemas/sub_category'  
+    sub_category:
+      type: object
+      required:
+        - id_category
+        - is_ranking
+        - name_category
+        - need_load_more
+        - book_list
+      properties:
+        id_category:
+          type: string
+          example: "_ranking"
+        is_ranking:
+          type: boolean
+          example: true
+        name_category:
+          type: string
+          example: "人気ランキング"
+        need_load_more:
+          type: boolean
+          example: true
+        book_list:
+          type: array
+          items:
+            $ref: '#/components/schemas/book'  
     book:
       type: object
       required:
