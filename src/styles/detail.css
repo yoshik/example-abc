@@ -42,9 +42,44 @@
       }
     }
   }
+  /* button_area */
+  .button_area {
+    background-color: var(--backgroud-sub-color);
+    .button {
+      border: solid 1px var(--accent-color);
+      border-radius: 5px;
+      color: var(--font-color);
+      float: left;
+      font-size: 8px;
+      height: 70px;
+      margin: 0 15px 15px 15px;
+      width: 70px;
+    }
+  }
 }
+
 /* layout */
 .detail {
+  display: grid;
+  .detail_responsive {
+    @media (min-width: 768px) {
+      display: grid;
+      grid-template-columns: 450px 1fr;
+    }
+    .book_area {
+      @media (min-width: 768px) {
+        grid-column: 1;
+      }
+    }
+    .button_area {
+      @media (max-width: 768px) {
+        margin-top: 15px;
+      }
+      @media (min-width: 768px) {
+        grid-column: 2;
+      }
+    }
+  }
   .book_area {
     display: grid;
     grid-template-columns: 90px 1fr;
@@ -72,10 +107,6 @@
     }
     @media (max-width: 768px) {
       width: 100%;
-    }
-    @media (min-width: 768px) {
-      display: grid;
-      width: 450px;
     }
   }
 }
