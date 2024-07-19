@@ -10,7 +10,7 @@ const List = () => {
 		<div className="list">
 			{(() => {
 				if (state.error) {
-					return <div>[TODO] error</div>;
+					return <div>[TODO] temporarily unavailable</div>;
 				} else if (state.data == null) {
 					/* loading */
 				} else {
