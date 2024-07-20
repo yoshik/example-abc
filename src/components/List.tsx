@@ -8,7 +8,7 @@ const List = () => {
 	const [state, setState] = useRecoilState(BookAllState);
 	updateBookAll(state, setState);
 	return (
-		<div className="list">
+		<main className="list">
 			{(() => {
 				if (state.error) {
 					return Busy();
@@ -16,27 +16,27 @@ const List = () => {
 					/* loading */
 				} else {
 					return state.data.sub_category_list.map((sub_category) => (
-						<div className="sub_category" key={sub_category.id_category}>
-							<div className="sub_category_name">
+						<section className="sub_category" key={sub_category.id_category}>
+							<h1 className="sub_category_name">
 								{sub_category.name_category}
-							</div>
-							<div className="book_list">
+							</h1>
+							<section className="book_list">
 								{(() =>
 									sub_category.book_list.map((book) => (
 										<Link to={"/book/" + book.id_book} state={{ book: book }}>
-											<div
+											<figure
 												className="book"
 												key={book.id_book}
 												style={{ backgroundImage: `url(${book.img_url})` }}
-											></div>
+											></figure>
 										</Link>
 									)))()}
-							</div>
-						</div>
+							</section>
+						</section>
 					));
 				}
 			})()}
-		</div>
+		</main>
 	);
 };
 
