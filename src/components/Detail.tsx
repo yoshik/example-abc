@@ -103,29 +103,29 @@ const Detail = () => {
 	const [state, setState] = useRecoilState(MyBookState);
 
 	return (
-		<div className="detail">
+		<main className="detail">
 			<div className="detail_responsive">
-				<div className="book_area">
-					<div
+				<article className="book_area">
+					<figure
 						className="book"
 						key={book.id_book}
 						style={{ backgroundImage: `url(${book.img_url})` }}
-					></div>
-					<div className="book_description_area">
-						<div className="line name">{book.name_book}</div>
-						<div className="line tagline">
+					></figure>
+					<section className="book_description_area">
+						<h1 className="line name">{book.name_book}</h1>
+						<p className="line tagline">
 							<div className="left">
 								<div className="tag">著者</div>
 							</div>
 							<div className="right">{book.author}</div>
-						</div>
-						<div className="line tagline">
+						</p>
+						<p className="line tagline">
 							<div className="left">
 								<div className="tag">出版社</div>
 							</div>
 							<div className="right">{book.publisher}</div>
-						</div>
-						<div className="line">
+						</p>
+						<p className="line">
 							{state.favorites[book.id_book] ? (
 								<button
 									className="button_on"
@@ -142,20 +142,20 @@ const Detail = () => {
 								</button>
 							)}
 							<button className="button_on">読み放題中</button>
-						</div>
-					</div>
-				</div>
+						</p>
+					</section>
+				</article>
 
-				<div className="button_area">
+				<aside className="button_area">
 					{buttons.map((button) => (
 						<button className="square-button" key={button.id}>
 							<img className={isDark ? button.darkImg : button.lightImg} />
 							<div className="label">{button.label}</div>
 						</button>
 					))}
-				</div>
+				</aside>
 			</div>
-		</div>
+		</main>
 	);
 };
 
