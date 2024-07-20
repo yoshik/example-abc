@@ -18,10 +18,10 @@ export const setFavorite = (
 	setState: SetterOrUpdater<MyBookProps>,
 ) => {
 	log("set favoirte " + book.id_book);
-	var newStates = JSON.parse(JSON.stringify(state.favorites));
-	newStates[book.id_book] = true;
-	save(newStates);
-	setState({ favorites: newStates });
+	var newFavorites = { ...state.favorites };
+	newFavorites[book.id_book] = true;
+	save(newFavorites);
+	setState({ favorites: newFavorites });
 };
 
 export const unsetFavorite = (
@@ -30,10 +30,10 @@ export const unsetFavorite = (
 	setState: SetterOrUpdater<MyBookProps>,
 ) => {
 	log("unset favoirte " + book.id_book);
-	var newStates = JSON.parse(JSON.stringify(state.favorites));
-	newStates[book.id_book] = false;
-	save(newStates);
-	setState({ favorites: newStates });
+	var newFavorites = { ...state.favorites };
+	newFavorites[book.id_book] = false;
+	save(newFavorites);
+	setState({ favorites: newFavorites });
 };
 
 const initMyBookProps: MyBookProps = {
